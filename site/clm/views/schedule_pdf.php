@@ -117,12 +117,12 @@ function clm_view_schedule_pdf($out)
         $pdf->Cell($br_team, $zelle, clm_core::$load->utf8decode($paar1->hname), 1, 0, 'C', $fc);
         $pdf->Cell($br_result, $zelle, ($paar1->brettpunkte." : ".$paar1->gbrettpunkte), 1, 0, 'C', $fc);
         //$pdf->Cell(10,$zelle,$pdf->GetY(),1,0,'C',$fc);
-        $pdf->Cell($br_team,$zelle,clm_core::$load->utf8decode($paar1->gname),1,1,'C',$fc);
+        $pdf->Cell($br_team, $zelle, clm_core::$load->utf8decode($paar1->gname), 1, 1, 'C', $fc);
     }
 
     // Ausgabe
     $filename = clm_core::$load->make_valid(clm_core::$load->utf8decode($club[0]->name." - ".$club[0]->season_name), 20, 'outputfile');
-    $pdf->Output($filename.'.pdf','D');
+    $pdf->Output($filename.'.pdf', 'D');
     //$pdf->Output(clm_core::$load->utf8decode($club[0]->name." - ".$club[0]->season_name).'.pdf','D');
     exit();
     return;

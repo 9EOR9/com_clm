@@ -159,8 +159,8 @@ foreach ($this->rounds as $value) {
                 } else {
                     $ergebnis = " ";
                 }
-                $pdf->Cell($br06,$zelle,$ergebnis,1,0,'C',1);
-                $pdf->Cell(1,$zelle," ",0,1,'C');
+                $pdf->Cell($br06, $zelle, $ergebnis, 1, 0, 'C', 1);
+                $pdf->Cell(1, $zelle, " ", 0, 1, 'C');
             }
         }
         if ($print_round == 1) {
@@ -170,5 +170,5 @@ foreach ($this->rounds as $value) {
 }
 
 // Ausgabe
-$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_PAIRINGLIST'))." ".clm_core::$load->utf8decode($this->turnier->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_PAIRINGLIST'))." ".clm_core::$load->utf8decode($this->turnier->name).'.pdf', 'D');
 exit;

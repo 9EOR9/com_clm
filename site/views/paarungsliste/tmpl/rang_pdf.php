@@ -184,14 +184,14 @@ $pdf->Cell(150, $zelle, 'Staffelleiter :', 0, 1, 'L');
 $pdf->SetFont('Times', '', $font - 2);
 $pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
 $pdf->Cell(150, $zelle, $liga[0]->sl, 0, 1, 'L');
-$pdf->Cell(15,$zelle,' ',0,0,'L');
-$pdf->Cell(150,$zelle,$liga[0]->email,0,1,'L');
+$pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
+$pdf->Cell(150, $zelle, $liga[0]->email, 0, 1, 'L');
 $pdf->Ln();
 
-$pdf->SetFont('Times','',5);
-$pdf->Cell(10,2,' ',0,0);
-$pdf->Cell(80,2,'erstellt am '.clm_core::$load->utf8decode(JHTML::_('date',  $now, JText::_('DATE_FORMAT_CLM_PDF'))),0,1,'L');
+$pdf->SetFont('Times', '', 5);
+$pdf->Cell(10, 2, ' ', 0, 0);
+$pdf->Cell(80, 2, 'erstellt am '.clm_core::$load->utf8decode(JHTML::_('date', $now, JText::_('DATE_FORMAT_CLM_PDF'))), 0, 1, 'L');
 
 // Ende Teilnehmer
-$pdf->Output('Rangliste '.$liga[0]->name.'.pdf','D');
+$pdf->Output('Rangliste '.$liga[0]->name.'.pdf', 'D');
 exit;

@@ -215,14 +215,14 @@ $pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
 $pdf->Cell(150, $zelle, clm_core::$load->utf8decode($liga[0]->sl), 0, 1, 'L');
 $pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
 if ($jid > 0 or $show_sl_mail > 0) {
-    $pdf->Cell(150,$zelle,$liga[0]->email,0,1,'L');
+    $pdf->Cell(150, $zelle, $liga[0]->email, 0, 1, 'L');
 } else {
-    $pdf->Cell(150,$zelle,'',0,1,'L');
+    $pdf->Cell(150, $zelle, '', 0, 1, 'L');
 }
 $pdf->Ln();
 
 // Ausgabe
-$pdf->Output(JText::_('TEILNEHMER').' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf','D');
+$pdf->Output(JText::_('TEILNEHMER').' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf', 'D');
 exit;
 ?>
 

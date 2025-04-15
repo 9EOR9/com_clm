@@ -416,7 +416,7 @@ $w = 0;
 	</tr></table>
 <?php
     //------------- Ende neuer Ansatz
-?>
+    ?>
         </td>
     </tr>
 <?php } ?>
@@ -424,7 +424,7 @@ $w = 0;
     
 </table>
 <?php }
-    $count = count($bestenliste);
+$count = count($bestenliste);
     ?>
 <br><br><br><br>
 

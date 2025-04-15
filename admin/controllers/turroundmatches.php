@@ -889,7 +889,7 @@ class CLMControllerTurRoundMatches extends JControllerLegacy
         if ($result[0] == false) {
             $this->app->enqueueMessage($result[1], 'warning');
         } else {
-            $this->app->enqueueMessage($result[1],'notice');
+            $this->app->enqueueMessage($result[1], 'notice');
         }
 
         //die('napi');

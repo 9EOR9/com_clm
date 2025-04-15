@@ -483,14 +483,14 @@ class ExcelWriterXML_Sheet
             return false;
         }
 
-        $link = mysql_connect($host,$username,$password);
+        $link = mysql_connect($host, $username, $password);
         if (!$link) {
-            $this->addError('Database','UNABLE to connect to '.$host.'('.mysql_error().')');
+            $this->addError('Database', 'UNABLE to connect to '.$host.'('.mysql_error().')');
         }
         if (count($this->formatErrors) > 0) {
             return false;
         }
 
-        EWXmysqlGenerateByQuery($this,$link,$query);
+        EWXmysqlGenerateByQuery($this, $link, $query);
     }
 }

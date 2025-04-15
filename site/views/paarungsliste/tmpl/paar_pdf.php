@@ -304,12 +304,12 @@ if ($liga[0]->published == 0) {
                         $yy = $pdf->GetY();
                         $pdf->SetXY(($xx + 8 - $breite), $yy);
                         $ztext = JText::_('PAAR_COMMENT').$paar[$z]->comment;
-                        $pdf->SetFont('Times','',$font);
-                        $pdf->MultiCell($tbreite,$zelle,clm_core::$load->utf8decode($ztext),'LTBR','L');
-                        $pdf->SetFont('Times','',$font);
+                        $pdf->SetFont('Times', '', $font);
+                        $pdf->MultiCell($tbreite, $zelle, clm_core::$load->utf8decode($ztext), 'LTBR', 'L');
+                        $pdf->SetFont('Times', '', $font);
                         $yy1 = $pdf->GetY();
-                        $pdf->SetXY($xx,$yy);
-                        $pdf->Cell(8 - $breite,($yy1 - $yy),$paar[$z]->paar,1,0,'C');
+                        $pdf->SetXY($xx, $yy);
+                        $pdf->Cell(8 - $breite, ($yy1 - $yy), $paar[$z]->paar, 1, 0, 'C');
 
                     }
                     $z++;
@@ -325,5 +325,5 @@ if ($liga[0]->published == 0) {
     }
 }
 
-$pdf->Output(clm_core::$load->utf8decode(JText::_('PAAR_OVERVIEW')).' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode(JText::_('PAAR_OVERVIEW')).' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf', 'D');
 exit;

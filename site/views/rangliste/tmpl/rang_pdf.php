@@ -396,29 +396,29 @@ if ($liga[0]->bemerkungen <> "") {
     $pdf->SetFont('Times', 'B', $font + 2);
     $pdf->Cell(10, $zelle, ' ', 0, 0, 'L');
     $pdf->Cell(150, $zelle, ' '.clm_core::$load->utf8decode(JText::_('NOTICE_SL')).' :', 0, 1, 'B');
-    $pdf->SetFont('Times','',$font);
-    $pdf->Cell(15,$zelle,' ',0,0,'L');
-    $pdf->MultiCell(150,$zelle,clm_core::$load->utf8decode($liga[0]->bemerkungen),0,'L',0);
+    $pdf->SetFont('Times', '', $font);
+    $pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
+    $pdf->MultiCell(150, $zelle, clm_core::$load->utf8decode($liga[0]->bemerkungen), 0, 'L', 0);
     $pdf->Ln();
 }
 
 if (is_null($liga[0]->sl)) {
     $liga[0]->sl = '';
 }
-$pdf->SetFont('Times','B',$font + 2);
-$pdf->Cell(10,$zelle,' ',0,0,'L');
-$pdf->Cell(150,$zelle,JText::_('CHIEF').' :',0,1,'L');
-$pdf->SetFont('Times','',$font);
-$pdf->Cell(15,$zelle,' ',0,0,'L');
-$pdf->Cell(150,$zelle,clm_core::$load->utf8decode($liga[0]->sl),0,1,'L');
-$pdf->Cell(15,$zelle,' ',0,0,'L');
+$pdf->SetFont('Times', 'B', $font + 2);
+$pdf->Cell(10, $zelle, ' ', 0, 0, 'L');
+$pdf->Cell(150, $zelle, JText::_('CHIEF').' :', 0, 1, 'L');
+$pdf->SetFont('Times', '', $font);
+$pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
+$pdf->Cell(150, $zelle, clm_core::$load->utf8decode($liga[0]->sl), 0, 1, 'L');
+$pdf->Cell(15, $zelle, ' ', 0, 0, 'L');
 if ($jid > 0 or $show_sl_mail > 0) {
-    $pdf->Cell(150,$zelle,$liga[0]->email,0,1,'L');
+    $pdf->Cell(150, $zelle, $liga[0]->email, 0, 1, 'L');
 } else {
-    $pdf->Cell(150,$zelle,'',0,1,'L');
+    $pdf->Cell(150, $zelle, '', 0, 1, 'L');
 }
 $pdf->Ln();
 
 // Ausgabe
-$pdf->Output(JText::_('RANGLISTE').' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf','D');
+$pdf->Output(JText::_('RANGLISTE').' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf', 'D');
 exit;

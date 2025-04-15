@@ -145,11 +145,11 @@ foreach ($vereinsliste as $vereinsliste) {
 		<td class="col_1"><?php echo $vereine[$z]->name; ?></td>
  		<?php } ?>	
        <?php if ($fe_vereinsliste_vs == 1) { ?><td class="col_2"><?php // Wenn Email
-         if (($auser > 0 or $verein_mail == 1) and $vereine[$z]->vs_mail == ! false) {
-             echo '<a href="mailto:'.$vereine[$z]->vs_mail.'">'.$vereine[$z]->vs.'</a>';
-         } else {
-             echo $vereine[$z]->vs;
-         }
+		 if (($auser > 0 or $verein_mail == 1) and $vereine[$z]->vs_mail == ! false) {
+		     echo '<a href="mailto:'.$vereine[$z]->vs_mail.'">'.$vereine[$z]->vs.'</a>';
+		 } else {
+		     echo $vereine[$z]->vs;
+		 }
            ?></td><?php } ?>
         <?php if ($fe_vereinsliste_hpage == 1) { ?><td class="col_3"><a href="<?php echo $vereine[$z]->homepage; ?>" target="_blank"><?php echo str_replace("http://", "", $vereine[$z]->homepage); ?></a></td><?php } ?>
         <td class="col_4"><a href="index.php?option=com_clm&view=dwz&saison=<?php echo $sid; ?>&zps=<?php echo $vereine[$z]->zps; ?><?php if ($itemid <> '') {

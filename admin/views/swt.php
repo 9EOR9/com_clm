@@ -85,7 +85,7 @@ class CLMViewSWT
 				<th width="27%" class="key" nowrap="nowrap"><?php echo JText::_('SWT_OPT_NAME'); ?></th>
 			</tr>
 			<?php
-            $offset = 13384 + $swt[8] * $swt[2] * 19 + $swt[2] * $swt[603] * 19 + $swt[8] * 655;
+		    $offset = 13384 + $swt[8] * $swt[2] * 19 + $swt[2] * $swt[603] * 19 + $swt[8] * 655;
         for ($man = 1; $man < 1 + $swt[603]; $man++) {
             $man_name = CLMControllerSWT::give_name($swt, 1 + $offset, ($offset + 65));
             $offset += 655;

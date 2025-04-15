@@ -82,7 +82,7 @@ $param_typeaccount = $turParams->get('typeAccount', 0);
 				<td class="key" nowrap="nowrap"><?php echo JText::_('PLAYER_SEX'); ?>:</td>
 				<td class="paramlist_value">
 					<?php
-                    $options = array();
+				    $options = array();
 $options[''] = '';
 $options['M'] = JText::_('OPTION_SEX_M');
 $options['W'] = JText::_('OPTION_SEX_W');

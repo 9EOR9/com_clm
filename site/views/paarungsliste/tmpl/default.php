@@ -276,9 +276,9 @@ for ($y = 0; $y < ($liga[0]->teil) / 2; $y++) {
 	</td>
 	<td class="dwz">
 		<?php //if (isset($dwzgespielt[$z2]) AND $dwzgespielt[$z2]->runde == ($x+1) AND $dwzgespielt[$z2]->paar == ($y+1) AND $dwzgespielt[$z2]->dg == 1 AND $paar[$z]->hmnr !=0 AND $paar[$z]->gmnr != 0)
-            //{ if ($params['dwz_date'] == '0000-00-00' OR $params['dwz_date'] == '1970-01-01') echo round($dwzgespielt[$z2]->dwz);
-            //	else echo round($dwzgespielt[$z2]->start_dwz); }
-            //else { if (isset($dwz[$paar[$z]->htln])) echo round($dwz[($paar[$z]->htln)]); }?>
+		    //{ if ($params['dwz_date'] == '0000-00-00' OR $params['dwz_date'] == '1970-01-01') echo round($dwzgespielt[$z2]->dwz);
+		    //	else echo round($dwzgespielt[$z2]->start_dwz); }
+		    //else { if (isset($dwz[$paar[$z]->htln])) echo round($dwz[($paar[$z]->htln)]); }?>
 		<?php	if (isset($a_average_dwz_round[$paar[$z]->htln]) && ($a_average_dwz_round[$paar[$z]->htln] != '-' and $paar[$z]->htln != 0 and $paar[$z]->gtln != 0)) {
 		    echo $a_average_dwz_round[$paar[$z]->htln];
 		} else {
@@ -288,10 +288,10 @@ for ($y = 0; $y < ($liga[0]->teil) / 2; $y++) {
 		} ?>
 		</td>
 		<?php
-        // Wenn Paarung existiert dann Ergebnis-Summen anzeigen
-        while ($summe[$sum_paar]->runde < ($x + 1)) {
-            $sum_paar++;
-        }
+		// Wenn Paarung existiert dann Ergebnis-Summen anzeigen
+		while ($summe[$sum_paar]->runde < ($x + 1)) {
+		    $sum_paar++;
+		}
     if ($summe[$sum_paar]->runde == ($x + 1) and $summe[$sum_paar]->paarung == ($y + 1)) { ?>
 			<td class="erg"><?php echo $summe[$sum_paar]->sum.' : '.$summe[$sum_paar + 1]->sum;
         if (($runden_modus == 4 or $runden_modus == 5) and ($summe[$sum_paar]->sum == $summe[$sum_paar + 1]->sum) and ($summe[$sum_paar]->sum > 0)) {

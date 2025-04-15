@@ -241,13 +241,13 @@ $pdf->Cell($lrand, $zelle - 2, '', 0, 0, 'C');
 $pdf->Cell(10, $zelle - 2, clm_core::$load->utf8decode(html_entity_decode('&sup1;', ENT_COMPAT)).JText::_('LEAGUE_RATING_COMMENT_PDF'), 0, 1, 'L');
 if ($ex > 0) {
     $pdf->Cell($lrand, $zelle - 2, '', 0, 0, 'C');
-    $pdf->Cell(10,$zelle - 2,clm_core::$load->utf8decode(html_entity_decode('&sup2;',ENT_COMPAT)).JText::_('LEAGUE_RATING_IMPOSSIBLE_PDF'),0,1,'L');
+    $pdf->Cell(10, $zelle - 2, clm_core::$load->utf8decode(html_entity_decode('&sup2;', ENT_COMPAT)).JText::_('LEAGUE_RATING_IMPOSSIBLE_PDF'), 0, 1, 'L');
 }
 if ($ey > 0) {
-    $pdf->Cell($lrand,$zelle - 2,'',0,0,'C');
-    $pdf->Cell(10,$zelle - 2,clm_core::$load->utf8decode(html_entity_decode('&sup3;',ENT_COMPAT)).JText::_('LEAGUE_WITH_UNCONTESTED_PDF'),0,1,'L');
+    $pdf->Cell($lrand, $zelle - 2, '', 0, 0, 'C');
+    $pdf->Cell(10, $zelle - 2, clm_core::$load->utf8decode(html_entity_decode('&sup3;', ENT_COMPAT)).JText::_('LEAGUE_WITH_UNCONTESTED_PDF'), 0, 1, 'L');
 }
 
 // Ausgabe
-$pdf->Output(JText::_('LEAGUE_STAT_BEST').' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf','D');
+$pdf->Output(JText::_('LEAGUE_STAT_BEST').' '.clm_core::$load->utf8decode($liga[0]->name).'.pdf', 'D');
 exit;

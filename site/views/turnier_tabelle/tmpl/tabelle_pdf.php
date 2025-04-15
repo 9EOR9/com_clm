@@ -134,13 +134,13 @@ for ($p = 0; $p < $this->turnier->playersCount; $p++) {
             $pdf->Cell($br92, $zelle, CLMtext::tiebrFormat($this->turnier->$fwFieldName, $this->players[$p]->$plTiebrField), 1, 0, 'C', 1);
         }
     }
-    $pdf->Cell(1,$zelle," ",0,1,'C');
+    $pdf->Cell(1, $zelle, " ", 0, 1, 'C');
 }
 
 // Ausgabe
 if (isset($this->turnier->spRangName) and $this->turnier->spRangName > '') {
-    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_TABLE')).' '.clm_core::$load->utf8decode($this->turnier->name).' '.clm_core::$load->utf8decode($this->turnier->spRangName).'.pdf','D');
+    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_TABLE')).' '.clm_core::$load->utf8decode($this->turnier->name).' '.clm_core::$load->utf8decode($this->turnier->spRangName).'.pdf', 'D');
 } else {
-    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_TABLE')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf','D');
+    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_TABLE')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf', 'D');
 }
 exit;

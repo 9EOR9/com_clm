@@ -1011,7 +1011,7 @@ class CLMModelSWTTurnierErg extends JModelLegacy
                     $paarung->pgn = $pgn_array[$pgn_key]->pgn;
                 }
 
-                if (!$db->insertObject('#__clm_turniere_rnd_spl',$paarung,'id')) {
+                if (!$db->insertObject('#__clm_turniere_rnd_spl', $paarung, 'id')) {
                     return false;
                 }
             }

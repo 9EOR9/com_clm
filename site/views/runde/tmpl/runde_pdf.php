@@ -837,7 +837,7 @@ if (!$liga or $liga[0]->published == "0") {
         } else {
             $pdf->SetX($xx2);
         }
-        $pdf->MultiCell($breite,$zelle,clm_core::$load->utf8decode($liga[$runde - 1]->comment),1,'L');
+        $pdf->MultiCell($breite, $zelle, clm_core::$load->utf8decode($liga[$runde - 1]->comment), 1, 'L');
     }
 
     // Unterschrift
@@ -847,11 +847,11 @@ if (!$liga or $liga[0]->published == "0") {
             $cr = true;
         } else {
             $pdf->AddPage();
-            $pdf->SetFont('Times','',$date_font);
-            $pdf->Cell(10,4,' ',0,0);
-            $pdf->Cell(175,4,clm_core::$load->utf8decode(JText::_('WRITTEN')).' '.clm_core::$load->utf8decode(JText::_('ON_DAY')).' '.clm_core::$load->utf8decode(JHTML::_('date',  $now, JText::_('DATE_FORMAT_CLM_PDF'))),0,1,'R');
+            $pdf->SetFont('Times', '', $date_font);
+            $pdf->Cell(10, 4, ' ', 0, 0);
+            $pdf->Cell(175, 4, clm_core::$load->utf8decode(JText::_('WRITTEN')).' '.clm_core::$load->utf8decode(JText::_('ON_DAY')).' '.clm_core::$load->utf8decode(JHTML::_('date', $now, JText::_('DATE_FORMAT_CLM_PDF'))), 0, 1, 'R');
             $cr = false;
-            $pdf->SetFont('Times','',$font);
+            $pdf->SetFont('Times', '', $font);
         }
     }
     if (!$cr) {
@@ -860,38 +860,38 @@ if (!$liga or $liga[0]->published == "0") {
         $pdf->SetX($xx2);
     }
     if (isset($liga[0]->mf_name)) {
-        $pdf->Cell($breite,$zelle,'',0,1,'C');
-        $pdf->SetFont('Times','',$font + 1);
+        $pdf->Cell($breite, $zelle, '', 0, 1, 'C');
+        $pdf->SetFont('Times', '', $font + 1);
         if (!$cr) {
             $pdf->SetX($xx1);
         } else {
             $pdf->SetX($xx2);
         }
-        $pdf->Cell(3,$zelle,' ',0,0,'L');
-        $pdf->Cell($breite - 3,$zelle,clm_core::$load->utf8decode(JText::_('CHIEF')),0,1,'L');
-        $pdf->SetFont('Times','',$font);
+        $pdf->Cell(3, $zelle, ' ', 0, 0, 'L');
+        $pdf->Cell($breite - 3, $zelle, clm_core::$load->utf8decode(JText::_('CHIEF')), 0, 1, 'L');
+        $pdf->SetFont('Times', '', $font);
         if (!$cr) {
             $pdf->SetX($xx1);
         } else {
             $pdf->SetX($xx2);
         }
-        $pdf->Cell(3,$zelle,' ',0,0,'L');
-        $pdf->Cell($breite - 3,$zelle,clm_core::$load->utf8decode($liga[0]->mf_name),0,1,'L');
+        $pdf->Cell(3, $zelle, ' ', 0, 0, 'L');
+        $pdf->Cell($breite - 3, $zelle, clm_core::$load->utf8decode($liga[0]->mf_name), 0, 1, 'L');
 
         if (!$cr) {
             $pdf->SetX($xx1);
         } else {
             $pdf->SetX($xx2);
         }
-        $pdf->Cell(3,$zelle,' ',0,0,'L');
-        $pdf->SetFont('Times','U',$font);
+        $pdf->Cell(3, $zelle, ' ', 0, 0, 'L');
+        $pdf->SetFont('Times', 'U', $font);
         if ($jid > 0 or $show_sl_mail > 0) {
-            $pdf->Cell($breite - 3,$zelle,clm_core::$load->utf8decode($liga[0]->email),0,1,'L');
+            $pdf->Cell($breite - 3, $zelle, clm_core::$load->utf8decode($liga[0]->email), 0, 1, 'L');
         } else {
-            $pdf->Cell($breite - 3,$zelle,'',0,1,'L');
+            $pdf->Cell($breite - 3, $zelle, '', 0, 1, 'L');
         }
     }
 }
 // Ausgabe
-$pdf->Output(clm_core::$load->utf8decode($runde.".".clm_core::$load->utf8decode(JText::_('ROUND_LETTER')).' ').clm_core::$load->utf8decode($liga[0]->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode($runde.".".clm_core::$load->utf8decode(JText::_('ROUND_LETTER')).' ').clm_core::$load->utf8decode($liga[0]->name).'.pdf', 'D');
 exit;

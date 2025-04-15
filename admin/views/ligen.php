@@ -456,7 +456,7 @@ class CLMViewLigen
 		</td>
 		<td colspan="2" class="paramlist_value">
 			<?php
-            $options = array();
+			$options = array();
         if ($countryversion == "de") {
             $options[0] = JText::_('OPTION_AUTODWZ_0');
             $options[1] = JText::_('OPTION_AUTODWZ_1');

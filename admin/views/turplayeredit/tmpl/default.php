@@ -73,7 +73,7 @@ $param_eloanalysis = $turParams->get('optionEloAnalysis', 0);
 				<td class="key" nowrap="nowrap"><?php echo JText::_('TEAM'); ?>:</td>
 				<td class="paramlist_value">
 					<?php
-                    $options = array();
+				    $options = array();
 			    $options[0] = JText::_('KEIN TEAM');
 			    foreach ($this->teams as $team) {
 			        $options[$team->tln_nr] = $team->name;

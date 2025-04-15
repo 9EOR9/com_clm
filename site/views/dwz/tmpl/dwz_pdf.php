@@ -152,12 +152,12 @@ if (!$liga[0]->Vereinname) { ?>
             } else {
                 $pdf->SetFont('Times', '', $font - 2);
                 $pdf->Cell(16, $zelle, '('.(600 + ($zps->DWZ * 8)).')', 1, 0, 'C');
-                $pdf->SetFont('Times','',$font);
+                $pdf->SetFont('Times', '', $font);
             }
             if ($zps->FIDE_Elo > 0) {
-                $pdf->Cell(16,$zelle,$zps->FIDE_Elo,1,0,'C');
+                $pdf->Cell(16, $zelle, $zps->FIDE_Elo, 1, 0, 'C');
             } else {
-                $pdf->Cell(16,$zelle,'',1,0,'C');
+                $pdf->Cell(16, $zelle, '', 1, 0, 'C');
             }
             // Zeilenumbruch
             $pdf->Ln();
@@ -166,7 +166,7 @@ if (!$liga[0]->Vereinname) { ?>
         }
     }
     // PDF an Browser senden
-    $pdf->Output(clm_core::$load->utf8decode(JText::_('CLUB_RATING')).' '.clm_core::$load->utf8decode($liga[0]->Vereinname).'.pdf','D');
+    $pdf->Output(clm_core::$load->utf8decode(JText::_('CLUB_RATING')).' '.clm_core::$load->utf8decode($liga[0]->Vereinname).'.pdf', 'D');
     exit;
 }
 ?>

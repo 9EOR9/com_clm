@@ -161,10 +161,10 @@ foreach ($this->matches as $key => $value) {
         } else {
             $ergebnis = " ";
         }
-        $pdf->Cell($br06,$zelle,$ergebnis,1,0,'C',1);
-        $pdf->Cell(1,$zelle," ",0,1,'C');
+        $pdf->Cell($br06, $zelle, $ergebnis, 1, 0, 'C', 1);
+        $pdf->Cell(1, $zelle, " ", 0, 1, 'C');
     }
 }
 // Ausgabe
-$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_ROUND'))." ".$this->round->nr.' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_ROUND'))." ".$this->round->nr.' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf', 'D');
 exit;

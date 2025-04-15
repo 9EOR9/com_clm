@@ -269,23 +269,23 @@ if ($this->turnier->typ == 1) { // CH-System
                 $pdf->Cell($br11, $zelle, $czelle, 1, 0, 'C', 1);
             }
         }
-        $pdf->Cell($br91,$zelle,$this->players[$p]->sum_punkte,1,0,'C',1);
+        $pdf->Cell($br91, $zelle, $this->players[$p]->sum_punkte, 1, 0, 'C', 1);
         // mgl. Feinwertungen
         for ($f = 1; $f <= 3; $f++) {
             $fwFieldName = 'tiebr'.$f;
             $plTiebrField = 'sumTiebr'.$f;
             if ($this->turnier->$fwFieldName > 0 and $this->turnier->$fwFieldName < 50) {
-                $pdf->Cell($br92,$zelle,CLMtext::tiebrFormat($this->turnier->$fwFieldName, $this->players[$p]->$plTiebrField),1,0,'C',1);
+                $pdf->Cell($br92, $zelle, CLMtext::tiebrFormat($this->turnier->$fwFieldName, $this->players[$p]->$plTiebrField), 1, 0, 'C', 1);
             }
         }
-        $pdf->Cell(1,$zelle," ",0,1,'C');
+        $pdf->Cell(1, $zelle, " ", 0, 1, 'C');
     }
 }
 
 // Ausgabe
 if (isset($this->turnier->spRangName) and $this->turnier->spRangName > '') {
-    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_RANKING')).' '.clm_core::$load->utf8decode($this->turnier->name).' '.clm_core::$load->utf8decode($this->turnier->spRangName).'.pdf','D');
+    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_RANKING')).' '.clm_core::$load->utf8decode($this->turnier->name).' '.clm_core::$load->utf8decode($this->turnier->spRangName).'.pdf', 'D');
 } else {
-    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_RANKING')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf','D');
+    $pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_RANKING')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf', 'D');
 }
 exit;

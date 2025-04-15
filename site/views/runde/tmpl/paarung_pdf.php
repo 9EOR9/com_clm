@@ -431,31 +431,31 @@ if (!$liga or $liga[0]->published == "0") {
             $pdf->SetX($xxr);
             if ($params['ReportForm'] == '1') { 	//mit Melde-Nr.
                 if ($ms) {
-                    $pdf->Cell(3,$zelle / 2,$team[$i]->snr,0,0,'C');
+                    $pdf->Cell(3, $zelle / 2, $team[$i]->snr, 0, 0, 'C');
                 } else {
                     // oder Rangnummer
                     // $pdf->Cell(3,$zelle/2,$team[$i]->tman_nr . "-" . $team[$i]->trang,0,0,'C');
-                    $pdf->Cell(6,$zelle / 2,$team[$i]->trang,0,0,'C');
+                    $pdf->Cell(6, $zelle / 2, $team[$i]->trang, 0, 0, 'C');
                 }
                 $strikeout_x = $pdf->GetX();
-                $pdf->Cell(32,$zelle / 2,clm_core::$load->utf8decode($team[$i]->Spielername),0,0,'L');
+                $pdf->Cell(32, $zelle / 2, clm_core::$load->utf8decode($team[$i]->Spielername), 0, 0, 'L');
                 if ($team[$i]->gesperrt == 1) {
                     $pdf->SetX($strikeout_x);
-                    $pdf->Cell(32,$zelle / 2,'------------------------',0,0,'L');
+                    $pdf->Cell(32, $zelle / 2, '------------------------', 0, 0, 'L');
                 }
             } else {								// 2 mit Mitgl.Nr.
-                $pdf->Cell(5,$zelle / 2,$team[$i]->mgl_nr,0,0,'C');
+                $pdf->Cell(5, $zelle / 2, $team[$i]->mgl_nr, 0, 0, 'C');
                 $strikeout_x = $pdf->GetX();
-                $pdf->Cell(30,$zelle / 2,clm_core::$load->utf8decode($team[$i]->Spielername),0,0,'L');
+                $pdf->Cell(30, $zelle / 2, clm_core::$load->utf8decode($team[$i]->Spielername), 0, 0, 'L');
                 if ($team[$i]->gesperrt == 1) {
                     $pdf->SetX($strikeout_x);
-                    $pdf->Cell(30,$zelle / 2,'------------------------',0,0,'L');
+                    $pdf->Cell(30, $zelle / 2, '------------------------', 0, 0, 'L');
                 }
             }
-            $pdf->Cell(7,$zelle / 2,$team[$i]->dwz,0,1,'C');
+            $pdf->Cell(7, $zelle / 2, $team[$i]->dwz, 0, 1, 'C');
         }
     }
 }
 // Ausgabe
-$pdf->Output(clm_core::$load->utf8decode($runde.".".$paarung.".".clm_core::$load->utf8decode(JText::_('PAIRING_FORM')).' ').clm_core::$load->utf8decode($liga[0]->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode($runde.".".$paarung.".".clm_core::$load->utf8decode(JText::_('PAIRING_FORM')).' ').clm_core::$load->utf8decode($liga[0]->name).'.pdf', 'D');
 exit;

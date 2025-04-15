@@ -234,7 +234,7 @@ $sresult = clm_core::$load->session_variables('o');
 			<td align="left" width="100" class="anfang"><?php echo JText::_('REGISTRATION_SEX'); ?>:</td>
 			<td class="paramlist_value" colspan="3">
 					<?php
-                    $options = array();
+			        $options = array();
 $options[''] = '';
 $options['M'] = JText::_('REGISTRATION_SEX_M');
 $options['W'] = JText::_('REGISTRATION_SEX_W');

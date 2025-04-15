@@ -1398,7 +1398,7 @@ class CLMModelAuswertung extends JModelLegacy
         $db->setQuery($sql);
         $ligalist[]	= JHTML::_('select.option', '0', JText::_('DB_FILE_TOURNAMENT_0'), 'cid', 'name');
         $ligalist	= array_merge($ligalist, $db->loadObjectList());
-        $lists['lid']	= JHTML::_('select.genericlist', $ligalist, 'filter_et', 'class="inputbox" size="1" onchange=""','cid', 'name', '');
+        $lists['lid']	= JHTML::_('select.genericlist', $ligalist, 'filter_et', 'class="inputbox" size="1" onchange=""', 'cid', 'name', '');
 
         return $lists['lid'];
     }
@@ -1413,9 +1413,9 @@ class CLMModelAuswertung extends JModelLegacy
             ." AND d.published = 1 "
             ." ORDER BY d.ordering ";
         $db->setQuery($sql);
-        $ligalist[]	= JHTML::_('select.option',  '0', JText::_('DB_FILE_TEAMTOURNAMENT_0'), 'cid', 'name');
+        $ligalist[]	= JHTML::_('select.option', '0', JText::_('DB_FILE_TEAMTOURNAMENT_0'), 'cid', 'name');
         $ligalist	= array_merge($ligalist, $db->loadObjectList());
-        $lists['lid']	= JHTML::_('select.genericlist', $ligalist, 'filter_mt', 'class="inputbox" size="1" onchange=""','cid', 'name', '');
+        $lists['lid']	= JHTML::_('select.genericlist', $ligalist, 'filter_mt', 'class="inputbox" size="1" onchange=""', 'cid', 'name', '');
 
         return $lists['lid'];
     }

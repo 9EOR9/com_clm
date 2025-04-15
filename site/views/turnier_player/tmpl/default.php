@@ -99,7 +99,7 @@ if ($this->playerPhoto != '') { ?>
 			<tr>
 				<td align="left" class="tp_col_1"><?php echo JText::_('TOURNAMENT_ELO') ?>:</td>
 				<?php // FIDE Link
-                    if ($turParams->get('displayPlayerFideLink', 0) == 1) { ?>
+				    if ($turParams->get('displayPlayerFideLink', 0) == 1) { ?>
 						<td class="tp_col_data"><a href="http://ratings.fide.com/card.phtml?event=<?php echo $this->player->FIDEid;?>" target="_blank"><?php echo CLMText::formatRating($this->player->FIDEelo) ?></td>
 					<?php } else { ?>
 						<td class="tp_col_data"><?php echo CLMText::formatRating($this->player->FIDEelo) ?></td>
@@ -111,15 +111,15 @@ if ($this->playerPhoto != '') { ?>
 				<td align="left" class="tp_col_1"><?php echo JText::_('TOURNAMENT_CLUB') ?>:</td>
 				<td class="tp_col_data">
 					<?php
-                    if ($this->tourn_linkclub == 1) {
-                        $link = new CLMcLink();
-                        $link->view = 'verein';
-                        $link->more = array('saison' => $this->player->sid, 'zps' => $this->player->zps, 'Itemid' => $itemid );
-                        $link->makeURL();
-                        echo $link->makeLink($this->player->verein);
-                    } else {
-                        echo $this->player->verein;
-                    }
+				    if ($this->tourn_linkclub == 1) {
+				        $link = new CLMcLink();
+				        $link->view = 'verein';
+				        $link->more = array('saison' => $this->player->sid, 'zps' => $this->player->zps, 'Itemid' => $itemid );
+				        $link->makeURL();
+				        echo $link->makeLink($this->player->verein);
+				    } else {
+				        echo $this->player->verein;
+				    }
     ?>
 				</td>
 			</tr>

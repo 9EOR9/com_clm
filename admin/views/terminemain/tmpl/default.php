@@ -120,7 +120,7 @@ foreach ($this->termine as $i => $value) {
 				<td>
 					<?php
 
-                        $adminLink = new AdminLink();
+					    $adminLink = new AdminLink();
     $adminLink->view = "termineform";
     $adminLink->more = array('task' => 'edit', 'id' => $row->id);
     $adminLink->makeURL();

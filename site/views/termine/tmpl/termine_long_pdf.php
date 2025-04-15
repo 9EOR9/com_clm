@@ -187,9 +187,9 @@ if ($t1 < 1) {
     $pdf->Cell(10, 3, ' ', 0, 0);
     $pdf->Cell(175, 3, clm_core::$load->utf8decode(JText::_('WRITTEN')).' '.clm_core::$load->utf8decode(JText::_('ON_DAY')).' '.clm_core::$load->utf8decode(JHTML::_('date', $now, JText::_('DATE_FORMAT_CLM_PDF'))), 0, 1, 'R');
 
-    $pdf->SetFont('Times','',$head_font);
-    $pdf->Cell(10,10,' ',0,0);
-    $pdf->Cell(150,10,clm_core::$load->utf8decode(JText::_('NO_TERMINE')),0,1,'L');
+    $pdf->SetFont('Times', '', $head_font);
+    $pdf->Cell(10, 10, ' ', 0, 0);
+    $pdf->Cell(150, 10, clm_core::$load->utf8decode(JText::_('NO_TERMINE')), 0, 1, 'L');
 }
-$pdf->Output(clm_core::$load->utf8decode(JText::_('TERMINE_FIXTURES')).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode(JText::_('TERMINE_FIXTURES')).'.pdf', 'D');
 exit;

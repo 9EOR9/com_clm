@@ -210,7 +210,7 @@ function clm_api_db_tournament_genDWZ($id, $group = true)
     }
     if (!$table->isNew()) {
         $params = new clm_class_params($table->params);
-        $params->set("inofDWZ","1");
+        $params->set("inofDWZ", "1");
         $table->params = $params->params();
     }
     return array(true, "m_calculateDWZSuccess");

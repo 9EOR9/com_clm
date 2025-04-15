@@ -387,7 +387,7 @@ class CLMViewErgebnisse
 			  <?php } else { ?>
 				<option value="<?php echo $gast[$x]->PKZ.'-'.$gast[$x]->zps; ?>"
 			 	  <?php if (($bretter and ($gast[$x]->PKZ) == ($bretter[$i]->gPKZ) and $gast[$x]->zps == $bretter[$i]->gzps)
-                    // Bedingungen Voreinstellung
+			        // Bedingungen Voreinstellung
 			      or (!$bretter and $x == $i and isset($bretter[$i]) and $bretter[$i]->gzps != "ZZZZZ")
 			      or (!$bretter and isset($hvoraufstellung[$i]) and ($hvoraufstellung[$i]->snr - 1) == $x and isset($bretter[$i]) and $bretter[$i]->gzps != "ZZZZZ")) { ?> selected="selected" <?php } ?>>
 			 	  <?php echo $gast[$x]->mnr.'&nbsp;-&nbsp;'.$gast[$x]->snr.'&nbsp;&nbsp;';

@@ -1726,7 +1726,7 @@ class CLMControllerDB extends JControllerLegacy
             }
         }
         $msg = JText::_('DB_IMPORT') . ' ' . $datei . ' ' . JText::_('DB_ERFOLGREICH');
-        $mainframe->enqueueMessage($msg,'message');
+        $mainframe->enqueueMessage($msg, 'message');
         $mainframe->redirect('index.php?option=com_clm&view=db');
     }
 }

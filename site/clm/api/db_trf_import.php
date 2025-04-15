@@ -735,7 +735,7 @@ function clm_api_db_trf_import($file, $season, $turnier, $group = false, $update
 
 
     if (!$test) {
-        $result = clm_core::$api->db_swt_to_clm($new_swt_tid,$turnier,$group,$update);
+        $result = clm_core::$api->db_swt_to_clm($new_swt_tid, $turnier, $group, $update);
         if ($debug > 1) {
             echo "<br>result:";
             var_dump($result);

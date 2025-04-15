@@ -543,22 +543,22 @@ if ($mannschaft[0]->published == 0) {
             $hpkt = "";
             $gpkt = "";
             $pdf->Cell(10, 4, ' ', 0, 0);
-            $pdf->Cell(12,4,$planl->runde,0,0,'C');
-            $pdf->Cell(12,4,$planl->paar,0,0,'C');
+            $pdf->Cell(12, 4, $planl->runde, 0, 0, 'C');
+            $pdf->Cell(12, 4, $planl->paar, 0, 0, 'C');
             while (isset($termin[$cnt]->nr) and ($planl->runde + $mannschaft[0]->runden * ($planl->dg - 1)) > $termin[$cnt]->nr) {
                 $cnt++;
             }
 
             if (isset($termin[$cnt]->nr) and ($planl->runde + $mannschaft[0]->runden * ($planl->dg - 1)) == $termin[$cnt]->nr) {
                 if ($termin[$cnt]->datum == '0000-00-00' or $termin[$cnt]->datum == '1970-01-01') {
-                    $pdf->Cell(30,4,' ',0,0,'L');
+                    $pdf->Cell(30, 4, ' ', 0, 0, 'L');
                 } else {
-                    $pdf->Cell(30,4,JHTML::_('date',  $termin[$cnt]->datum, JText::_('DATE_FORMAT_CLM')),0,0,'L');
+                    $pdf->Cell(30, 4, JHTML::_('date', $termin[$cnt]->datum, JText::_('DATE_FORMAT_CLM')), 0, 0, 'L');
                 }
                 $cnt++;
-                $pdf->Cell(40,4,clm_core::$load->utf8decode($planl->hname),0,0,'L');
-                $pdf->Cell(40,4,clm_core::$load->utf8decode($planl->gname),0,0,'L');
-                $pdf->Cell(2,4,'',0,0,'C');
+                $pdf->Cell(40, 4, clm_core::$load->utf8decode($planl->hname), 0, 0, 'L');
+                $pdf->Cell(40, 4, clm_core::$load->utf8decode($planl->gname), 0, 0, 'L');
+                $pdf->Cell(2, 4, '', 0, 0, 'C');
                 while (isset($bpr[$ibpr]) and $bpr[$ibpr]->runde < $planl->runde) {
                     $ibpr++;
                 }
@@ -574,16 +574,16 @@ if ($mannschaft[0]->published == 0) {
                     }
                     $ibpr++;
                 }
-                $pdf->Cell(8,4,$hpkt,1,0,'C');
-                $pdf->Cell(4,4,':',0,0,'C');
-                $pdf->Cell(8,4,$gpkt,1,0,'C');
-                $pdf->Cell(8,4,'',0,1,'C');
+                $pdf->Cell(8, 4, $hpkt, 1, 0, 'C');
+                $pdf->Cell(4, 4, ':', 0, 0, 'C');
+                $pdf->Cell(8, 4, $gpkt, 1, 0, 'C');
+                $pdf->Cell(8, 4, '', 0, 1, 'C');
             }
         }
     }
 }
 // Ausgabe
-$pdf->Output(JText::_('TEAM').' '.clm_core::$load->utf8decode($mannschaft[0]->name).'.pdf','D');
+$pdf->Output(JText::_('TEAM').' '.clm_core::$load->utf8decode($mannschaft[0]->name).'.pdf', 'D');
 exit;
 ?>
  

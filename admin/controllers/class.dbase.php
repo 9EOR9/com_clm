@@ -256,11 +256,11 @@ class dbase
         }
         // Bytewerte ermitteln
         for ($i = 0;$i < strlen($hexdata);$i += 2) {
-            $bindata .= chr(hexdec(substr($hexdata,$i,2)));
+            $bindata .= chr(hexdec(substr($hexdata, $i, 2)));
         }
         // L�nge des Strings anpassen
         if (strlen($bindata) < $bytes) {
-            $bindata = str_pad($bindata,$bytes,chr(0),STR_PAD_LEFT);
+            $bindata = str_pad($bindata, $bytes, chr(0), STR_PAD_LEFT);
         }
         return $bindata;
     }

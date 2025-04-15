@@ -253,11 +253,11 @@ foreach ($this->matches as $key => $value) {
 			</td>
 			<td>
 				<?php
-                    if ($this->round->tl_ok == 1) {
-                        echo JText::_('JYES');
-                    } else {
-                        echo JText::_('JNO');
-                    }
+			        if ($this->round->tl_ok == 1) {
+			            echo JText::_('JYES');
+			        } else {
+			            echo JText::_('JNO');
+			        }
 ?>
 			</td>
 		</tr>

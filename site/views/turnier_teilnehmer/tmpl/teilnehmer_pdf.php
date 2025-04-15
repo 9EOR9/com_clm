@@ -126,11 +126,11 @@ foreach ($this->players as $key => $value) {
         $pdf->Cell($br07, $zelle, $value->start_dwz, 1, 0, 'C', 1);
     }
     if ($turParams->get('displayPlayerElo', 0) == 1) {
-        $pdf->Cell($br08,$zelle,$value->FIDEelo,1,0,'C',1);
+        $pdf->Cell($br08, $zelle, $value->FIDEelo, 1, 0, 'C', 1);
     }
-    $pdf->Cell(1,$zelle," ",0,1,'C');
+    $pdf->Cell(1, $zelle, " ", 0, 1, 'C');
 }
 
 // Ausgabe
-$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_PARTICIPANTLIST')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_PARTICIPANTLIST')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf', 'D');
 exit;

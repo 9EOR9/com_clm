@@ -143,18 +143,18 @@ foreach ($this->players as $key => $value) {
     }
     $pdf->Cell($br08, $zelle, $Partien, 1, 0, 'C', 1);
     if ($value->DWZ == 0) {
-        $pdf->Cell($br04,$zelle,'-',1,0,'C',1);
+        $pdf->Cell($br04, $zelle, '-', 1, 0, 'C', 1);
     } else {
-        $pdf->Cell($br04,$zelle,$value->DWZ,1,0,'C',1);
+        $pdf->Cell($br04, $zelle, $value->DWZ, 1, 0, 'C', 1);
     }
     if ($value->DWZ == 0 or $value->start_dwz == 0) {
-        $pdf->Cell($br09,$zelle,'-',1,0,'C',1);
+        $pdf->Cell($br09, $zelle, '-', 1, 0, 'C', 1);
     } else {
-        $pdf->Cell($br09,$zelle,($value->DWZ - $value->start_dwz),1,0,'C',1);
+        $pdf->Cell($br09, $zelle, ($value->DWZ - $value->start_dwz), 1, 0, 'C', 1);
     }
-    $pdf->Cell(1,$zelle," ",0,1,'C');
+    $pdf->Cell(1, $zelle, " ", 0, 1, 'C');
 }
 
 // Ausgabe
-$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_DWZ_PDF')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf','D');
+$pdf->Output(clm_core::$load->utf8decode(JText::_('TOURNAMENT_DWZ_PDF')).' '.clm_core::$load->utf8decode($this->turnier->name).'.pdf', 'D');
 exit;

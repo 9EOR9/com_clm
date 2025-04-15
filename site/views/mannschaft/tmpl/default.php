@@ -793,7 +793,7 @@ elseif ($mannschaft[0]->lpublished != 0 and $mannschaft[0]->published != 0) { ?>
     if (($mannschaft[0]->lokal == ! false) and (($googlemaps_msch == "3") || ($googlemaps_msch == "1"))  and ($googlemaps == "1")) { ?>
 	<h4><?php echo JText::_('OSM_MAPS') ?></h4>
     <?php
-        $lat = $mannschaft[0]->lokal_coord_lat;
+		$lat = $mannschaft[0]->lokal_coord_lat;
         $lon = $mannschaft[0]->lokal_coord_long;
         if ($spiellokal1G[0] == ! false) {
             $loc_text = $spiellokal1G[0];

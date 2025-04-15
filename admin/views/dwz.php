@@ -513,7 +513,7 @@ class CLMViewDWZ
 <?php if ($clmAccess->access('BE_database_general') === true and $countryversion == "en") { ?>
 	<div>
 	<?php 	//$zps = $mainframe->getUserStateFromRequest( "$option.filter_vid",'filter_vid',0,'var' );
-        //$spl = CLMControllerDWZ::spieler($filter_vid_from);?>
+	    //$spl = CLMControllerDWZ::spieler($filter_vid_from);?>
 	<br>
 	<fieldset class="adminform">
 	<legend style="margin-bottom:0"><?php echo JText::_('MEMBER_TABLE_MOVE_1'); ?></legend>

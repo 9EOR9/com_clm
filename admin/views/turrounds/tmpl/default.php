@@ -131,20 +131,20 @@ foreach ($this->turrounds as $i => $value) {
 				
 				<td align="center">
 					<?php
-                    if (($this->turnier->tl != clm_core::$access->getJid() and $clmAccess->access('BE_tournament_edit_result') !== true) or ($clmAccess->access('BE_tournament_edit_result') === false)) {
-                        echo CLMText::sgpl($value->countMatches, JText::_('MATCH'), JText::_('MATCHES'));
-                    } else {
-                        $adminLink = new AdminLink();
-                        $adminLink->view = "turroundmatches";
-                        $adminLink->more = array('turnierid' =>  $this->param['id'], 'roundid' => $row->id);
-                        $adminLink->makeURL();
-                        echo '<a href="'.$adminLink->url.'">'.CLMText::sgpl($value->countMatches, JText::_('MATCH'), JText::_('MATCHES')).'</a>';
-                    } ?>
+					if (($this->turnier->tl != clm_core::$access->getJid() and $clmAccess->access('BE_tournament_edit_result') !== true) or ($clmAccess->access('BE_tournament_edit_result') === false)) {
+					    echo CLMText::sgpl($value->countMatches, JText::_('MATCH'), JText::_('MATCHES'));
+					} else {
+					    $adminLink = new AdminLink();
+					    $adminLink->view = "turroundmatches";
+					    $adminLink->more = array('turnierid' =>  $this->param['id'], 'roundid' => $row->id);
+					    $adminLink->makeURL();
+					    echo '<a href="'.$adminLink->url.'">'.CLMText::sgpl($value->countMatches, JText::_('MATCH'), JText::_('MATCHES')).'</a>';
+					} ?>
 				</td>
 				
 				<td align="center">
 					<?php
-                        echo $value->countAssigned."&nbsp;".JText::_('MATCHES_ASSIGNED');
+					    echo $value->countAssigned."&nbsp;".JText::_('MATCHES_ASSIGNED');
     echo '<br />'.$value->countResults."&nbsp;".JText::_('MATCHES_PLAYED');
     ?>
 				</td>

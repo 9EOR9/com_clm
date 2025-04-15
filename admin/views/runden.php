@@ -285,12 +285,12 @@ class CLMViewRunden
 					</td>
 					<td align="center">
 					<?php
-                        // Ergebnismeldung möglich
-                        if ($rows[$i]->meldung == 1) {
-                            echo '<a href="javascript:void(0);" onclick="Joomla.listItemTask(\'cb'.($i).'\', \'notpossible\')" title="'.JText::_('RUNDE_REMOVE_RESULTINPUT').'"><img width="16" height="16" src="components/com_clm/images/apply_f2.png" /></a>';
-                        } else {
-                            echo '<a href="javascript:void(0);" onclick="Joomla.listItemTask(\'cb'.($i).'\', \'possible\')" title="'.JText::_('RUNDE_SET_RESULTINPUT').'"><img width="16" height="16" src="components/com_clm/images/cancel_f2.png" /></a>';
-                        }
+						// Ergebnismeldung möglich
+						if ($rows[$i]->meldung == 1) {
+						    echo '<a href="javascript:void(0);" onclick="Joomla.listItemTask(\'cb'.($i).'\', \'notpossible\')" title="'.JText::_('RUNDE_REMOVE_RESULTINPUT').'"><img width="16" height="16" src="components/com_clm/images/apply_f2.png" /></a>';
+						} else {
+						    echo '<a href="javascript:void(0);" onclick="Joomla.listItemTask(\'cb'.($i).'\', \'possible\')" title="'.JText::_('RUNDE_SET_RESULTINPUT').'"><img width="16" height="16" src="components/com_clm/images/cancel_f2.png" /></a>';
+						}
             ?>
 					</td>
 					<td align="center">

@@ -22,7 +22,15 @@ jobs:
         with:
           php-version: '8.2'
 
-      - name: Download PHP CS Fixer
+      - name: Cache PHP CS Fixer
+        id: cache-phpcs
+        uses: actions/cache@v3
+        with:
+          path: php-cs-fixer
+          key: php-cs-fixer-v3
+
+      - name: Download PHP CS Fixer if not cached
+        if: steps.cache-phpcs.outputs.cache-hit != 'true'
         run: |
           curl -L https://cs.symfony.com/download/php-cs-fixer-v3.phar -o php-cs-fixer
           chmod +x php-cs-fixer

@@ -15,7 +15,7 @@ class com_clmInstallerScript
 {
     private $params = array();
     private $version;
-    private $redirect= false;
+    private $redirect = false;
     protected $localeMsgs= [];
 
     protected function loadInstallationLanguages($parent)

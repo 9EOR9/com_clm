@@ -42,6 +42,7 @@ class com_clmInstallerScript
 
     protected function getMsg($key)
     {
+        // If the message for given key can't be found, we will return the key.
         return $this->localeMsgs[$key] ?? $key;
     }
 

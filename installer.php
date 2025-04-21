@@ -1,29 +1,86 @@
 <?php
 
+use Joomla\CMS\Factory;
+
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 if (!defined("DS")) {
     define('DS', DIRECTORY_SEPARATOR);
 } // fix for Joomla 3.x
+
+define("JOOMLA_REQUIRED_MINIMUM_VERSION", "2.5.0"); // Hmm, Joomla 2 and 3 reached EOL ??
+define("CLM_UPDATE_REQUIRED_MINIMUM_VERSION", "1.5.2");
+
 class com_clmInstallerScript
 {
     private $params = array();
     private $version;
     private $redirect = false;
+    protected $localeMsgs= [];
+
+    protected function loadInstallationLanguages($parent)
+    {
+        $locale = Factory::getLanguage()->getTag(); // e.g. de-DE or en-GB
+        $sourcePath = $parent->getParent()->getPath('source') . '/install/languages';
+        $inifile = '.com_clm.install.ini';
+
+        // Try user's language first
+        $iniFile = $sourcePath . '/' . $locale . $inifile;
+
+        if (!is_file($iniFile)) {
+            // fallback to English
+            $iniFile = $sourcePath . '/' . 'en-GB' . $inifile;
+        }
+
+        if (is_file($iniFile)) {
+            $strings = parse_ini_file($iniFile, false, INI_SCANNER_RAW);
+            if (is_array($strings)) {
+                $this->localeMsgs = $strings;
+            }
+        }
+    }
+
+    protected function getMsg($key)
+    {
+        return $this->localeMsgs[$key] ?? $key;
+    }
+
     public function preflight($type, $parent)
     {
         define('clm_install', "42");
         $jversion = new JVersion();
-        if ($jversion->getShortVersion() < '2.5.0') {
-            $application = JFactory::getApplication();
-            $application->enqueueMessage('Cannot install com_clm in a Joomla release prior to 2.5.0.', 'error');
+
+        // Load messages
+        $this->loadInstallationLanguages($parent);
+
+        $sourcePath = $parent->getParent()->getPath('source') . '/language';
+
+        if ($jversion->getShortVersion() >= '4.0.0') {
+            $db = Factory::getContainer()->get('DatabaseDriver');
+        } else {
+            $db= Factory::getDbo();
+        }
+        $query = $db->getQuery(true)
+             ->select('@@session.autocommit as autocommit');
+        $db->setQuery($query);
+        $application = JFactory::getApplication();
+        $autocommit= (int)$db->loadResult();
+        if ($autocommit == 0)
+        {
+            $application->enqueueMessage($this->getMsg('E_AUTOCOMMIT_OFF'), 'error');
+            return false;
+        }
+
+        /* Joomla 3 reached EOL Aug 17 2021, extended security support ended Aug. 17 2023 - do
+           we really need to support Joomla 2 + 3 ???? */
+        if ($jversion->getShortVersion() < JOOMLA_REQUIRED_MINIMUM_VERSION) {
+            $application->enqueueMessage(sprintf($this->getMsg('E_JOOMLA_MINIMUM'), JOOMLA_REQUIRED_MINIMUM_VERSION), 'error');
             return false;
         }
         if ($type == 'update') {
             $this->version = $this->getParam('version');
-            if ($this->version < '1.5.2') {
-                $application = JFactory::getApplication();
-                $application->enqueueMessage($type.'Please install com_clm 1.5.2 before this update.', 'error');
+            if ($this->version < CLM_UPDATE_REQUIRED_MINIMUM_VERSION) {
+                $application->enqueueMessage(sprintf($this->getMsg('E_CLM_MINIMUM'), CLM_UPDATE_REQUIRED_MINIMUM_VERSION), 'error');
                 return false;
             }
             // Alte Konfiguration auslesen
@@ -34,8 +91,7 @@ class com_clmInstallerScript
             $status = self::tableStatus();
             // kleiner als 1.5.2
             if ($status == 0) {
-                $application = JFactory::getApplication();
-                $application->enqueueMessage($type.'Please install com_clm 1.5.2 before this update.', 'error');
+                $application->enqueueMessage($this->getMsg('E_CLM_MINIMUM'), 'error');
                 return false;
             } elseif ($status == 1) {
                 $this->version = "1.5.2";
@@ -61,7 +117,7 @@ class com_clmInstallerScript
         $out = clm_core::$load->db_update(0);
         if (!$out) {
             $application = JFactory::getApplication();
-            $application->enqueueMessage('There is a problem with the database, is there an old table?', 'error');
+            $application->enqueueMessage($this->getMsg('E_DB_OLD_TABLE'), 'error');
         } else {
             $this->add(4, "installer_install", json_encode(array("old" => "","new" => clm)));
         }
@@ -87,7 +143,7 @@ class com_clmInstallerScript
         }
         if (!$out) {
             $application = JFactory::getApplication();
-            $application->enqueueMessage('There is a problem with the database, have you something changed?', 'error');
+            $application->enqueueMessage($this->getMsg('E_DB_CHANGED_TABLE'), 'error');
         }
         return $out;
     }

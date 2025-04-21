@@ -2,8 +2,13 @@ name: PHP CS Fixer Check
 
 on:
   push:
-    branches: [main]  # or whichever branches you want to protect
+    branches:
+      - main
+      - innodb
   pull_request:
+    branches:
+      - main
+      - innodb
 
 jobs:
   php-cs-fixer:

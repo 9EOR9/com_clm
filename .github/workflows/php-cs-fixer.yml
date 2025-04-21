@@ -22,8 +22,10 @@ jobs:
         with:
           php-version: '8.2'
 
-      - name: Install dependencies
-        run: composer install --no-progress
+      - name: Download PHP CS Fixer
+        run: |
+          curl -L https://cs.symfony.com/download/php-cs-fixer-v3.phar -o php-cs-fixer
+          chmod +x php-cs-fixer
 
       - name: Run PHP CS Fixer
         run: vendor/bin/php-cs-fixer fix --dry-run --diff --config=.php-cs-fixer.php

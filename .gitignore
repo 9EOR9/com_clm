@@ -1,1 +1,5 @@
 .php-cs-fixer.cache
+# Ignore vim files:
+*~
+*.swp
+*.swo

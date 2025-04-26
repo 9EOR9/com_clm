@@ -7,7 +7,7 @@ as we do in php source code.
 ## Tables
 
 | Table | BSV | Description |
-|-------|-----|.....--------|
+|-------|-----|-------------|
 | [#clm_config](tables/tbl_clm_config.md)           | ? | Stores the CLM global configuration |
 | [#clm_dwz_spieler](tables/tbl_clm_dwz_spieler.md) | Y | Players (imported from DEWIS) |
 | [#clm_saison](tables/tbl_clm_season.md)           | Y | Seasons |

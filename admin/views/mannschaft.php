@@ -91,6 +91,9 @@ public static function mannschaften( $rows, $lists, $pageNav, $option )
 					<th class="title">
 						<?php echo HTMLHelper::_('grid.sort',   'MANNSCHAFT', 'a.name', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
+					<th class="title">
+						<?php echo HTMLHelper::_('grid.sort',   'DWZ', 'a.durchschnitt_dwz', @$lists['order_Dir'], @$lists['order'] ); ?>
+					</th>
 					<th width="3%">
 						<?php echo HTMLHelper::_('grid.sort',   'MANNSCHAFT_NR', 'a.man_nr', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
@@ -164,6 +167,9 @@ public static function mannschaften( $rows, $lists, $pageNav, $option )
 								<?php echo $row->name; ?></a></span>
 
 					</td>
+          <td align="right">
+						<?php echo $row->durchschnitt_dwz ? $row->durchschnitt_dwz : 0;?>
+          </td>
 
 					<td align="center">
 						<?php echo $row->man_nr;?>

@@ -168,7 +168,7 @@ public static function mannschaften( $rows, $lists, $pageNav, $option )
 
 					</td>
           <td align="right">
-						<?php echo $row->durchschnitt_dwz ? $row->durchschnitt_dwz : 0;?>
+						<?php echo $rows[$i]->durchschnitt_dwz ? $rows[$i]->durchschnitt_dwz : 0;?>
           </td>
 
 					<td align="center">

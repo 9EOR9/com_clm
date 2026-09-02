@@ -50,10 +50,9 @@ class TableCLMMannschaften extends Table
 	var $sname		= '';
 	var $abzug		= 0;
 	var $bpabzug	= 0;
-  var $durchschnitt_dwz = 0;
  
 	function __construct( &$_db ) {
-		parent::__construct( '#__clm_mannschaften_view', 'id', $_db );
+		parent::__construct( '#__clm_mannschaften', 'id', $_db );
 	}
 
 	/**

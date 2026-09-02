@@ -120,7 +120,7 @@ class CLMControllerMannschaften extends JControllerLegacy
 
         if($counter_man > 0){
             $mainframe->enqueueMessage( Text::_( 'MANNSCHAFTEN_ES_GIBT').' '.$counter_man.' '.Text::_('MANNSCHAFTEN_ERROR_MANNSCHAFT_VEREIN'), 'notice' );
-        } 
+        }
 
         // Haupt-Query mit Berechnung des DWZ-Schnitts für Stammspieler (snr <= stamm)
         $query = ' SELECT a.*, c.name AS saison, b.Vereinname AS verein, u.name AS editor, d.name AS liga_name, ms.durchschnitt_dwz '

@@ -440,6 +440,7 @@ public static function mannschaft( &$row,$lists, $option )
 		<input type="hidden" name="id" value="<?php echo $row->id; ?>" />
 		<input type="hidden" name="rankingpos" value="<?php echo $row->rankingpos; ?>" />
 		<input type="hidden" name="pre_man" value="<?php echo $row->man_nr; ?>" />
+		<input type="hidden" name="pre_liga" value="<?php echo $row->liga; ?>" />
 <!---		<input type="hidden" name="cid" value="<?php //echo $row->cid; ?>" />
 		<input type="hidden" name="client_id" value="<?php //echo $row->cid; ?>" />
 --->		<input type="hidden" name="liste" value="<?php echo $row->liste; ?>" />

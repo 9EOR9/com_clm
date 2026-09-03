@@ -120,7 +120,7 @@ class CLMControllerMannschaften extends JControllerLegacy
 
         if($counter_man > 0){
             $mainframe->enqueueMessage( Text::_( 'MANNSCHAFTEN_ES_GIBT').' '.$counter_man.' '.Text::_('MANNSCHAFTEN_ERROR_MANNSCHAFT_VEREIN'), 'notice' );
-        }
+        } 
 
         // Haupt-Query mit Berechnung des DWZ-Schnitts für Stammspieler (snr <= stamm)
         $query = ' SELECT a.*, c.name AS saison, b.Vereinname AS verein, u.name AS editor, d.name AS liga_name, ms.durchschnitt_dwz '
@@ -408,6 +408,7 @@ class CLMControllerMannschaften extends JControllerLegacy
         $task    = clm_core::$load->request_string( 'task');
         $row     = Table::getInstance( 'mannschaften', 'TableCLM' );
         $pre_man = clm_core::$load->request_int( 'pre_man');
+        $pre_liga = clm_core::$load->request_int( 'pre_liga');
 
         $post = $_POST; 
         if (!$row->bind($post)) {
@@ -415,7 +416,8 @@ class CLMControllerMannschaften extends JControllerLegacy
             $link = 'index.php?option='.$option.'&section='.$section;
             $mainframe->redirect( $link);
         }
-        
+        // Als Debug-Meldung in die Joomla-Logs schreiben
+
         if ($row->sg_zps != '') {
             $sg_array = $row->sg_zps;
             $row->sg_zps = implode(',',$sg_array);
@@ -519,6 +521,16 @@ class CLMControllerMannschaften extends JControllerLegacy
                 ." AND (zps = '".$row->zps."' OR zps = '".$row->sg_zps."')";
             clm_core::$db->query($query);
         }
+
+        if ($liga_dat->rang == 0 AND $pre_liga != $row->liga) {
+				  	$query= "UPDATE #__clm_meldeliste_spieler "
+                . "SET lid = ".$row->liga
+                ." WHERE sid = ".$row->sid
+                ." AND lid = ".$pre_liga
+                ." AND mnr = ".$row->man_nr
+                ." AND (zps = '".$row->zps."' OR zps = '".$row->sg_zps."')";
+            clm_core::$db->query($query);
+				}
 
         clm_core::$api->db_tournament_ranking($row->liga,true); 
 
@@ -1377,3 +1389,4 @@ class CLMControllerMannschaften extends JControllerLegacy
         $mainframe->redirect( 'index.php?option='.$option.'&section='.$section);
     }
 }
+

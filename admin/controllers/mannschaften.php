@@ -2,6 +2,7 @@
 /**
  * @ Chess League Manager (CLM) Component 
  * @Copyright (C) 2008-2026 CLM Team.  All rights reserved
+ *                2026 Georg Richter
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link https://chessleaguemanager.org
  * @author Thomas Schwietert
@@ -641,7 +642,7 @@ class CLMControllerMannschaften extends JControllerLegacy
                         ." AND sid =".$row->sid;
                     clm_core::$db->query($query); 
                 }
-                $query = " DELETE FROM #__clm_mannschaften WHERE id IN ( '. $cids .' )";
+                $query = " DELETE FROM #__clm_mannschaften WHERE id IN ($cids)";
                 if (!clm_core::$db->query($query)) {
                     echo "<script> alert('".$db->getErrorMsg(true)."'); window.history.go(-1); </script>\n";
                 }
